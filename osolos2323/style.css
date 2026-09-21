@@ -1,0 +1,447 @@
+/* Fondo Negro */
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000;
+    overflow: hidden;
+    position: relative;
+    font-family: 'Arial Rounded MT Bold', 'Arial', sans-serif;
+}
+
+/* --- EFECTO DE LUCIÉRNAGAS --- */
+.luciernaga {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background-color: #d3f9d8;
+    border-radius: 50%;
+    box-shadow: 0 0 10px 4px #94d82d;
+    bottom: -20px;
+    opacity: 0;
+    animation: flotarYParpadear 8s infinite linear;
+    pointer-events: none;
+}
+
+@keyframes flotarYParpadear {
+    0% { transform: translateY(0) translateX(0); opacity: 0; }
+    10% { opacity: 0.8; }
+    50% { transform: translateY(-50vh) translateX(30px); opacity: 1; }
+    75% { transform: translateY(-75vh) translateX(-20px); }
+    95% { opacity: 0.8; }
+    100% { transform: translateY(-105vh) translateX(10px); opacity: 0; }
+}
+
+.l1 { left: 15%; animation-delay: 0s; animation-duration: 9s; }
+.l2 { left: 30%; animation-delay: 2s; animation-duration: 7s; }
+.l3 { left: 45%; animation-delay: 4s; animation-duration: 11s; }
+.l4 { left: 60%; animation-delay: 1s; animation-duration: 8s; }
+.l5 { left: 75%; animation-delay: 5s; animation-duration: 10s; }
+.l6 { left: 85%; animation-delay: 3s; animation-duration: 6s; }
+
+/* --- EFECTO MÁGICO DE CORAZONES --- */
+.corazon-flotante {
+    position: absolute;
+    bottom: -30px;
+    background-color: #ff4d6d;
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    transform: rotate(-45deg);
+    opacity: 0;
+    animation: flotarCorazon 6s infinite linear;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.corazon-flotante::before, .corazon-flotante::after {
+    content: "";
+    background-color: inherit;
+    border-radius: 50%;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+
+.corazon-flotante::before { top: -50%; left: 0; }
+.corazon-flotante::after { top: 0; left: 50%; }
+
+@keyframes flotarCorazon {
+    0% { transform: translateY(0) rotate(-45deg) scale(0.5); opacity: 0; }
+    10% { opacity: 0.8; }
+    90% { opacity: 0.8; }
+    100% { transform: translateY(-105vh) rotate(45deg) scale(1.2); opacity: 0; }
+}
+
+/* Animación de aparición lenta */
+@keyframes abrirEscenario {
+    from { opacity: 0; transform: scale(0.85) translateY(20px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.escenario {
+    animation: abrirEscenario 4s ease-out forwards;
+    display: flex;
+    align-items: flex-end; 
+    position: relative;
+    padding-bottom: 20px;
+    z-index: 2;
+}
+
+/* --- LETRERO LUMINOSO --- */
+.letrero {
+    position: absolute;
+    top: -120px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 46px;
+    font-weight: 900;
+    color: #ffffff;
+    text-align: center;
+    white-space: nowrap;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-shadow: 
+        0 0 7px #fff,
+        0 0 15px #ffd43b,
+        0 0 30px #ffd43b,
+        0 0 60px #fab005,
+        0 0 90px #ff922b;
+    animation: pulsoNeon 3s infinite alternate ease-in-out;
+}
+
+@keyframes pulsoNeon {
+    0%, 100% { 
+        opacity: 0.95; 
+        text-shadow: 0 0 7px #fff, 0 0 15px #ffd43b, 0 0 30px #ffd43b, 0 0 60px #fab005, 0 0 90px #ff922b;
+    }
+    50% { 
+        opacity: 1; 
+        text-shadow: 0 0 10px #fff, 0 0 25px #ffd43b, 0 0 45px #fab005, 0 0 80px #ff922b, 0 0 120px #ff6b6b;
+        transform: translateX(-50%) scale(1.02);
+    }
+    23% { opacity: 1; }
+    24% { opacity: 0.8; }
+    26% { opacity: 1; }
+}
+
+.contenedor-oso {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+/* --- DISEÑO DEL OSO --- */
+.cabeza-contenedor {
+    position: relative;
+    width: 280px;
+    height: 230px;
+    z-index: 2;
+}
+
+.cabeza-movimiento {
+    transform-origin: bottom center;
+    animation: moverCabeza 3s infinite ease-in-out alternate;
+}
+
+@keyframes moverCabeza {
+    0% { transform: rotate(-5deg); }
+    100% { transform: rotate(5deg); }
+}
+
+.oreja-izq, .oreja-der {
+    position: absolute;
+    width: 75px;
+    height: 75px;
+    background-color: #a0522d;
+    border-radius: 50%;
+    top: 5px;
+}
+.oreja-izq { left: 10px; }
+.oreja-der { right: 10px; }
+
+.oreja-izq::after, .oreja-der::after {
+    content: '';
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    background-color: #ffdab9; 
+    border-radius: 50%;
+    top: 15px;
+    left: 15px;
+}
+
+.cabeza {
+    position: absolute;
+    width: 260px;
+    height: 210px;
+    background-color: #b86b32;
+    border-radius: 50% 50% 46% 46%;
+    bottom: 0;
+    left: 10px;
+    box-shadow: inset -10px -10px 0px rgba(0,0,0,0.1);
+}
+
+.ojo-izq, .ojo-der {
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    background-color: #1a1a1a;
+    border-radius: 50%;
+    top: 75px;
+    transition: transform 0.1s, height 0.1s;
+}
+.ojo-izq { left: 65px; }
+.ojo-der { right: 65px; }
+
+.ojo-izq::after, .ojo-der::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    top: 4px;
+    left: 5px;
+}
+
+.parpadear {
+    height: 4px !important;
+    top: 86px !important;
+}
+
+.hocico {
+    position: absolute;
+    width: 100px;
+    height: 80px;
+    background-color: #fff8dc;
+    border-radius: 50%;
+    bottom: 25px;
+    left: 80px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.nariz {
+    position: absolute;
+    width: 36px;
+    height: 24px;
+    background-color: #222;
+    border-radius: 50% 50% 40% 40%;
+    top: 16px;
+    left: 32px;
+}
+
+.boca {
+    position: absolute;
+    width: 2px;
+    height: 12px;
+    background-color: #222;
+    top: 38px;
+    left: 49px;
+}
+
+.cuerpo-contenedor {
+    position: relative;
+    width: 300px;
+    height: 220px;
+    margin-top: -40px;
+    z-index: 1;
+}
+
+.torso {
+    position: absolute;
+    width: 220px;
+    height: 200px;
+    background-color: #a0522d;
+    border-radius: 50% 50% 40% 40%;
+    left: 40px;
+    box-shadow: inset -12px -10px 0px rgba(0,0,0,0.1);
+}
+
+.panza-blanca {
+    position: absolute;
+    width: 130px;
+    height: 110px;
+    background-color: #fff8dc;
+    border-radius: 50%;
+    top: 40px;
+    left: 45px;
+}
+
+.brazo-izq, .brazo-der {
+    position: absolute;
+    width: 65px;
+    height: 130px;
+    background-color: #a0522d;
+    border-radius: 40px;
+    top: 15px;
+}
+.brazo-izq { left: 5px; transform: rotate(25deg); }
+.brazo-der { right: 5px; transform: rotate(-25deg); }
+
+.pata-izq, .pata-der {
+    position: absolute;
+    width: 85px;
+    height: 70px;
+    background-color: #8b5a2b;
+    border-radius: 45%;
+    bottom: -10px;
+}
+.pata-izq { left: 25px; }
+.pata-der { right: 25px; }
+
+.pata-izq::after, .pata-der::after {
+    content: '';
+    position: absolute;
+    width: 45px;
+    height: 35px;
+    background-color: #ffdab9;
+    border-radius: 50%;
+    bottom: 12px;
+    left: 20px;
+}
+
+/* --- JARDÍN DE FLORES --- */
+.jardin-izq, .jardin-der {
+    position: relative;
+    width: 150px;
+    height: 220px;
+    z-index: 1;
+}
+.jardin-izq { margin-right: -30px; }
+.jardin-der { margin-left: -30px; }
+
+.bloque-flor {
+    position: absolute;
+    bottom: 0;
+    width: 60px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    cursor: pointer;
+    transform-origin: bottom center;
+    transition: transform 0.4s ease-out;
+}
+
+.mover-flor {
+    animation: vaiven 1.2s ease-in-out;
+}
+
+@keyframes vaiven {
+    0% { transform: rotate(0deg); }
+    20% { transform: rotate(-12deg); }
+    40% { transform: rotate(10deg); }
+    60% { transform: rotate(-6deg); }
+    80% { transform: rotate(3deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.tallo {
+    width: 6px;
+    background-color: #2b8a3e;
+    border-radius: 3px;
+    z-index: 1;
+    position: relative;
+}
+
+.hoja-izq, .hoja-der {
+    position: absolute;
+    width: 18px;
+    height: 12px;
+    background-color: #37b24d;
+}
+
+.hoja-izq {
+    left: -16px;
+    border-radius: 12px 0 12px 12px;
+    transform: rotate(-15deg);
+}
+
+.hoja-der {
+    right: -16px;
+    border-radius: 0 12px 12px 12px;
+    transform: rotate(15deg);
+}
+
+.flor {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    background-color: #ffd43b;
+    border-radius: 50%;
+    z-index: 2;
+    margin-bottom: -10px;
+    box-shadow: 
+        0 -18px 0 4px #fab005, 0 18px 0 4px #fab005, 
+        -18px 0 0 4px #fab005, 18px 0 0 4px #fab005,
+        -13px -13px 0 4px #ffd43b, 13px -13px 0 4px #ffd43b, 
+        -13px 13px 0 4px #ffd43b, 13px 13px 0 4px #ffd43b;
+}
+
+.flor::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: #e67e22;
+    border-radius: 50%;
+    top: 4px;
+    left: 4px;
+}
+
+.izq-1 { left: 0px; } .izq-1 .tallo { height: 110px; }
+.izq-2 { left: 50px; } .izq-2 .tallo { height: 160px; }
+.izq-3 { left: 100px; } .izq-3 .tallo { height: 80px; }
+.der-1 { right: 100px; } .der-1 .tallo { height: 90px; }
+.der-2 { right: 50px; } .der-2 .tallo { height: 170px; } .der-2 .flor { transform: scale(1.1); }
+.der-3 { right: 0px; } .der-3 .tallo { height: 120px; }
+
+/* --- BOTÓN FLOTANTE DE LA CARTA --- */
+.btn-carta-flotante {
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+    background-color: #ffd43b;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 212, 59, 0.4);
+    z-index: 10;
+    font-family: inherit;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn-carta-flotante:hover {
+    background-color: #fab005;
+    transform: scale(1.05);
+}
+
+/* --- SISTEMA POP-UP DE LA CARTA --- */
+.overlay-carta {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.overlay-carta.activo {
+opacity: 1;pointer-events: auto;}.carta-contenido {background: linear-gradient(135deg, #fffaf0, #fff5e6);padding: 35px;width: 90%;max-width: 450px;border-radius: 20px;box-shadow: 0 10px 30px rgba(255, 212, 59, 0.2);border: 3px solid #ffd43b;text-align: center;position: relative;transform: scale(0.7);transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);}.overlay-carta.activo .carta-contenido {transform: scale(1);}.carta-contenido h2 {margin-top: 0;color: #e67e22;font-size: 24px;}.carta-contenido p {color: #4a4a4a;font-size: 16px;line-height: 1.6;font-family: 'Arial', sans-serif;font-weight: normal;text-align: justify;}.carta-contenido strong {color: #d94873;display: block;text-align: center;font-size: 18px;margin-top: 15px;}.btn-cerrar {position: absolute;top: 15px;right: 20px;background: none;border: none;font-size: 28px;color: #aaa;cursor: pointer;transition: color 0.2s;}.btn-cerrar:hover {color: #e67e22;}
