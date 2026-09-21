@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Oso y su Jardín Mágico</title>
+    <!-- Conexión con el archivo de estilos -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Estructura de Luciérnagas de Fondo -->
+    <div class="luciernaga l1"></div>
+    <div class="luciernaga l2"></div>
+    <div class="luciernaga l3"></div>
+    <div class="luciernaga l4"></div>
+    <div class="luciernaga l5"></div>
+    <div class="luciernaga l6"></div>
+
+    <!-- Escenario Principal -->
+    <div class="escenario">
+        
+        <!-- Letrero Luminoso -->
+        <div class="letrero">HOOOOLAAA MI AMOR</div>
+
+        <!-- Jardín Izquierdo -->
+        <div class="jardin-izq">
+            <div class="bloque-flor izq-1">
+                <div class="flor"></div>
+                <div class="tallo">
+                    <div class="hoja-der" style="top: 40px;"></div>
+                </div>
+            </div>
+            <div class="bloque-flor izq-2">
+                <div class="flor"></div>
+                <div class="tallo">
+                    <div class="hoja-izq" style="top: 50px;"></div>
+                    <div class="hoja-der" style="top: 90px;"></div>
+                </div>
+            </div>
+            <div class="bloque-flor izq-3">
+                <div class="flor"></div>
+                <div class="tallo">
+                    <div class="hoja-izq" style="top: 30px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Oso Central -->
+        <div class="contenedor-oso">
+            <div class="cabeza-contenedor cabeza-movimiento">
+                <div class="oreja-izq"></div>
+                <div class="oreja-der"></div>
+                <div class="cabeza">
+                    <div class="ojo-izq ojo-animado"></div>
+                    <div class="ojo-der ojo-animado"></div>
+                    <div class="hocico">
+                        <div class="nariz"></div>
+                        <div class="boca"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="cuerpo-contenedor">
+                <div class="brazo-izq"></div>
+                <div class="brazo-der"></div>
+                <div class="torso">
+                    <div class="panza-blanca"></div>
+                </div>
+                <div class="pata-izq"></div>
+                <div class="pata-der"></div>
+            </div>
+        </div>
+
+        <!-- Jardín Derecho -->
+        <div class="jardin-der">
+            <div class="bloque-flor der-1">
+                <div class="flor"></div>
+                <div class="tallo">
+                    <div class="hoja-der" style="top: 35px;"></div>
+                </div>
+            </div>
+            <div class="bloque-flor der-2">
+                <div class="flor"></div>
+                <div class="tallo">
+                    <div class="hoja-izq" style="top: 40px;"></div>
+                    <div class="hoja-der" style="top: 100px;"></div>
+                </div>
+            </div>
+            <div class="bloque-flor der-3">
+                <div class="flor"></div>
+                <div class="tallo">
+                    <div class="hoja-izq" style="top: 45px;"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Botón Flotante para abrir la carta -->
+    <button id="btnAbrirCarta" class="btn-carta-flotante">Ver Carta 💌</button>
+
+    <!-- Ventana Emergente de la Carta -->
+    <div id="overlayCarta" class="overlay-carta">
+        <div class="carta-contenido">
+            <button id="btnCerrarCarta" class="btn-cerrar">&times;</button>
+            <h2>Para mi amor ❤️</h2>
+            <p>
+                Dicen que el 21 de septiembre se regalan flores amarillas a la persona con la que quieres pasar el resto de tu vida, 
+                y hoy que cumplimos un año de conocernos, sé con total certeza que esa persona eres tú. <br><br>
+                Gracias por iluminar mis días oscuros, por tu amor tan hermoso y por hacer este año tan bonito con momentos divertidos, 
+                graciosos, nerviosos, tranquilos, asustados y hacer momentos inolvidables. <br><br>
+                Eres lo mas bonito y hermoso que tengo y estoy muy feliz por eso. <br><br>
+                <strong>Te amo mucho mucho mi amor 💗</strong>
+            </p>
+        </div>
+    </div>
+
+    <!-- Conexión con el archivo de interactividad -->
+    <script src="script.js"></script>
+</body>
+</html>
